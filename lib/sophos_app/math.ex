@@ -22,7 +22,7 @@ defmodule SophosApp.Math do
     def kind(n) when n > 0, do: :positive
 end
 
-def circunferencia(r), do: 2*r*@pi
+# def circunferencia(r), do: 2 * r * @pi
 
 defmodule SophosApp.Geometry.Rectangle do
     def area(a), do: area(a, a)

@@ -1,4 +1,4 @@
-defmodule SophosApp.AdventOfCode.Day1 do
+defmodule SophosApp.AdventOfCode.Day do
     alias SophosApp.MyList
     import String, only: [split: 3]
 

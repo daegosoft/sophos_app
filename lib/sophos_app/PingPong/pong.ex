@@ -5,7 +5,7 @@ defmodule SophosApp.Pong do
             IO.puts "Ping"
             :timer.sleep(2000)
             send sender, {self(), :pong}
+            pong()
         end
-        pong()
     end
 end

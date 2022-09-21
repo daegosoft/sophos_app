@@ -1,13 +1,12 @@
 defmodule SophosApp.FactorialServer do
     alias SophosApp.Factorial
 
-    def handle_message({:sequence, n}, caller) do
-        result = Factorial.of(n)
-        send(caller, {:compute, n, result})
+    def handle_message({:compute, n}, _caller) do
+        Factorial.of(n)
     end
 
-    def handle_message({:status}, caller) do
-        send(caller, {:ok, caller})
+    def handle_message({:status}, _caller) do
+        :ok
     end
         # receive do
         #      ->
@@ -25,5 +24,5 @@ defmodule SophosApp.FactorialServer do
         #     handle_message(caller)
         #     # after 1500 ->pid  IO.puts("Se acabo")
         # end
-    end
+    # end
 end

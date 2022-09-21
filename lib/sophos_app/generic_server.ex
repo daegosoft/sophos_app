@@ -1,15 +1,13 @@
 defmodule SophosApp.GenericServer do
     def start(module, caller) do
-        spawn(fn ->
-            loop(module, caller)
-        end)
-            module, :handle_message, [caller]
+        spawn(fn -> loop(module, caller) end)
     end
 
     def loop(module, caller) do
         receive do
             msg -> 
-                module.handle_message(msg, caller)
+                result = module.handle_message(msg, caller)
+                send(caller, result)
                 loop(module, caller)
 
         end

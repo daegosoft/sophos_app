@@ -1,14 +1,13 @@
 defmodule SophosApp.FibonacciServer do
     alias SophosApp.Fibonacci
 
-    def handle_message({:sequence, n}, caller) do
-        result = Fibonacci.sequence(n)
-        send(caller, {:fibonacci, n, result})
+    def handle_message({:sequence, n}, _caller) do
+        Fibonacci.sequence(n)
         # handle_message(caller)
     end
 
-    def handle_message({:status}, caller) do
-        send(caller, {:ok, caller})
+    def handle_message({:status}, _caller) do
+        :ok
         # handle_message(caller)
     end
 
@@ -24,5 +23,5 @@ defmodule SophosApp.FibonacciServer do
             # handle_message(caller)
             # after 1500 ->pid  IO.puts("Se acabo")
         # end
-    end
+    # end
 end

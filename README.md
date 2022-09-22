@@ -22,5 +22,5 @@ be found at <https://hexdocs.pm/sophos_app>.
 
 Agregado al arbol de procesos Fibonacci y Factorial
 
-![imagen](https://user-images.githubusercontent.com/71157440/191639641-2bee259f-732e-4a31-b3ef-642879238a3d.png)
+![imagen](https://user-images.githubusercontent.com/71157440/191640652-6edac2ab-1d80-45c5-ab83-7172cf6d5130.png)
 

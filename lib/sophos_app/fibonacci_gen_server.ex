@@ -1,14 +1,17 @@
 defmodule SophosApp.FibonacciGenServer do
     use GenServer
+
     alias SophosApp.Fibonacci
 
     #Client API
     def start_link(_)do
         GenServer.start_link __MODULE__, %{}
     end
+
     def compute(pid, n) do
         GenServer.cast(pid, {:sequence, n})
     end
+
 
     def crash(pid) do
         GenServer.call(pid, :crash)
@@ -19,19 +22,19 @@ defmodule SophosApp.FibonacciGenServer do
     end
 
     #Callbacks
-
     def init(_args) do
         {:ok, %{}}
     end
+
     def handle_call(:crash, _from, state) do
-        # raise ArgumentError, "Negative not allowed"
         Process.exit(self(), :kill)
         {:reply, 0, state}
     end
 
     def handle_call({:sequence, n}, _from, state) when n >= 0 do
-        result = compute_sequence(n , state)
-        new_state =  Map.put(state, n, result)
+        result = compute_sequence(n, state)
+
+        new_state = Map.put_new(state, n, result)
         {:reply, result, new_state}
     end
 
@@ -39,9 +42,9 @@ defmodule SophosApp.FibonacciGenServer do
         {:reply, state, state}
     end
 
-    def handle_cast({:sequence, n}, _from, state) do
-        result = compute_sequence(n , state)
-        new_state =  Map.put(state, n, result)
+    def handle_cast({:sequence, n}, state) do
+        result = compute_sequence(n, state)
+        new_state = Map.put_new(state, n, result)
         {:noreply, new_state}
     end
 

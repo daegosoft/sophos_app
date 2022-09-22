@@ -1,13 +1,15 @@
-defmodule SophosApp.FactorialSupervisor do
+defmodule SophosApp.Supervisor do
     use Supervisor
-    alias SophosApp.FactorialGenServer
 
     def start_link(args)do
         Supervisor.start_link(__MODULE__, args, name: __MODULE__)
     end
 
     def init(_args) do
-        children = [FactorialGenServer]
+        children = [
+            {SophosApp.FibonacciSupervisor, []},
+            {Task.Supervisor, [name: SophosApp.TaskSupervisor]}
+        ]
         Supervisor.init(children, strategy: :one_for_one)
     end
 end

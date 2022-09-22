@@ -19,3 +19,8 @@ Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_do
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at <https://hexdocs.pm/sophos_app>.
 
+
+Agregado al arbol de procesos Fibonacci y Factorial
+
+![imagen](https://user-images.githubusercontent.com/71157440/191639641-2bee259f-732e-4a31-b3ef-642879238a3d.png)
+
